@@ -8,9 +8,14 @@
 5. **`attrib -h -s -r`**: Reveals a hidden folder. 👀
 6. **`netsh wlan show profile`**: Shows all Wi-Fi networks connected to. 📶
 7. **`netsh wlan show profile [network] key=clear`**: Reveals Wi-Fi password in plain text. 🔑
-8. **Batch File for Wi-Fi Passwords**: Create a .bat file to easily display all stored Wi-Fi passwords. 📝
-9. **`systeminfo`**: Displays detailed system information. 💻
-10. **`scp` (Secure Copy)**: Copies files to a remote server securely. 🌐
+8. **Extracting Saved Wi-Fi Passwords on Windows (rmb to change directory to desktop first**:
+   This command is used in Windows Command Prompt to extract and save the Wi-Fi profiles and their corresponding passwords that are stored on a computer.
+   ```cmd
+   for /f "skip=9 tokens=1,2 delims=:" %i in ('netsh wlan show profiles') do @if "%j" NEQ "" (echo SSID: %j & netsh wlan show profiles %j key=clear | findstr "Key Content") >> wifi-password.txt
+
+9. **Batch File for Wi-Fi Passwords**: Create a .bat file to easily display all stored Wi-Fi passwords. 📝
+10. **`systeminfo`**: Displays detailed system information. 💻
+11. **`scp` (Secure Copy)**: Copies files to a remote server securely. 🌐
 
 ## 🗂️ File and Folder Management
 11. **Open CMD from Explorer**: Type CMD in the address bar of any folder. 📁
